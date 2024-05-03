@@ -1,0 +1,163 @@
+input {
+    keyboard {
+        xkb {
+            options "ctrl:swap_rwin_rctl,compose:ralt"
+        }
+    }
+    touchpad {
+        tap
+        natural-scroll
+    }
+    mouse {
+    }
+    tablet {
+        map-to-output "eDP-1"
+    }
+}
+output "eDP-1" {
+    scale 1.0
+    transform "normal"
+    mode "1920x1080@59.934"
+    position x=0 y=0
+}
+
+layout {
+    focus-ring {
+        width 6
+        active-gradient from="#33ccffee" to="#00ff99ee" angle=45
+        inactive-color 89 89 89 170
+    }
+    border {
+        off
+    }
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+    default-column-width { proportion 0.5; }
+    gaps 24
+    struts {
+         left 0
+         right 0
+         top 0
+         bottom 0
+    }
+    center-focused-column "never"
+}
+
+environment {
+    ELECTRON_OZONE_PLATFORM_HINT "wayland"
+}
+animations {
+    slowdown 3.0
+    workspace-switch {
+         duration-ms 250
+         curve "ease-out-cubic"
+    }
+    horizontal-view-movement {
+         duration-ms 250
+         curve "ease-out-cubic"
+    }
+    window-open {
+         duration-ms 150
+         curve "ease-out-expo"
+    }
+    config-notification-open-close {
+         duration-ms 250
+         curve "ease-out-cubic"
+    }
+}
+spawn-at-startup "swayosd-server" "-s" "~/.config/swayosd/style.css"
+cursor {
+}
+prefer-no-csd
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+hotkey-overlay {
+    skip-at-startup
+}
+binds {
+    Mod+Shift+Slash { show-hotkey-overlay; }
+    Mod+T { spawn "alacritty"; }
+    Mod+E { spawn "nautilus"; }
+    Mod+period { spawn "rofimoji"; }
+    Mod+Space { spawn "fuzzel"; }
+    Mod+Alt+L { spawn "swaylock" "--indicator-idle-visible" "-e" "-F" "-i" "/home/cosmo/Pictures/wallpaper.jpg"; }
+    XF86AudioRaiseVolume { spawn "swayosd-client" "--output-volume" "raise"; }
+    XF86AudioLowerVolume { spawn "swayosd-client" "--output-volume" "lower"; }
+    XF86AudioMute { spawn "swayosd-client" "--output-volume" "mute-toggle"; }
+    XF86MonBrightnessDown { spawn "swayosd-client" "--brightness" "lower"; }
+    XF86MonBrightnessUp { spawn "swayosd-client" "--brightness" "raise"; }
+    Mod+Q { close-window; }
+    
+    Mod+Left  { focus-column-left; }
+    Mod+Down  { focus-window-down; }
+    Mod+Up    { focus-window-up; }
+    Mod+Right { focus-column-right; }
+
+    Mod+Ctrl+Left  { move-column-left; }
+    Mod+Ctrl+Down  { move-window-down; }
+    Mod+Ctrl+Up    { move-window-up; }
+    Mod+Ctrl+Right { move-column-right; }
+
+
+    Mod+Home { focus-column-first; }
+    Mod+End  { focus-column-last; }
+    Mod+Ctrl+Home { move-column-to-first; }
+    Mod+Ctrl+End  { move-column-to-last; }
+
+    Mod+Shift+Left  { focus-monitor-left; }
+    Mod+Shift+Down  { focus-monitor-down; }
+    Mod+Shift+Up    { focus-monitor-up; }
+    Mod+Shift+Right { focus-monitor-right; }
+
+    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+Down  { move-column-to-monitor-down; }
+    Mod+Shift+Ctrl+Up    { move-column-to-monitor-up; }
+    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+
+    Mod+Page_Down      { focus-workspace-down; }
+    Mod+Page_Up        { focus-workspace-up; }
+    Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
+    Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
+
+    Mod+Shift+Page_Down { move-workspace-down; }
+    Mod+Shift+Page_Up   { move-workspace-up; }
+
+    Mod+ALT+Comma  { consume-window-into-column; }
+    Mod+ALT+Period { expel-window-from-column; }
+
+    Mod+R { switch-preset-column-width; }
+    Mod+F { maximize-column; }
+    Mod+Shift+F { fullscreen-window; }
+    Mod+C { center-column; }
+
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    Mod+Print { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+
+    Mod+Shift+E { spawn "wleave" "-p" "layer-shell"; }
+    Mod+Shift+P { power-off-monitors; }
+
+}
+
+window-rule {
+    geometry-corner-radius 8
+    clip-to-geometry true
+}
+
+window-rule {
+    match title="Firefox"
+    open-maximized true
+}
+
+window-rule {
+    match title="1Password"
+    block-out-from "screen-capture"
+}
