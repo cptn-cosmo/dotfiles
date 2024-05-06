@@ -1,0 +1,27 @@
+[global]
+font = Sans 12
+corner_radius = 8
+offset = (24, 24)
+padding = 12
+icon_theme = "Breeze"
+
+[urgency_low]
+foreground = "#ffffffff"
+background = "#333333ee"
+frame_color = "#33ccffee"
+highlight = "#00ff99ff"
+#value = "#33ccffee"
+
+[urgency_normal]
+foreground = "#ffffffff"
+background = "#333333ee"
+frame_color = "#33ccffee"
+highlight = "#00ff99ff"
+#value = "#33ccffee"
+
+[urgency_criticall]
+foreground = "#ffffffff"
+background = "#333333ee"
+frame_color = "#33ccffee"
+highlight = "#00ff99ff"
+#value = "#33ccffee"
