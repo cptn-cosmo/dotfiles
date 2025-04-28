@@ -1,0 +1,15 @@
+* {
+    /* Transparent background for everything */
+    background: transparent;
+    border: none;
+    color: black;
+    font-family: "JetBrainsMono Nerd Font", "Fira Code", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0;
+}
+
+#custom-weather {
+    /* Optional: Add some right margin so it's not stuck to the edge */
+    margin-right: 10px;
+}

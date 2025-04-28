@@ -1,0 +1,22 @@
+{
+    "layer": "bottom",
+    "exclusive": false,
+    "output": ["HDMI-A-2"],
+    "position": "top",
+    "margin": 0,
+    "spacing": 8,
+    "modules-right": ["clock", "custom/weather"],
+    "modules-center": [],
+    "modules-left": [],
+    "clock": {
+        "format": "{:%A, %d %B | %H:%M}",
+        "tooltip-format": "{:%A, %B %d, %Y %H:%M:%S}",
+        "interval": 60
+    },
+    "custom/weather": {
+        "exec": "/home/cosmo/.config/waybar/scripts/weather.sh",
+        "return-type": "json",
+        "interval": 1800, // update every 30 minutes
+        "format": "{}"
+    }
+}
