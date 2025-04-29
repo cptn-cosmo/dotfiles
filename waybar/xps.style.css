@@ -1,0 +1,127 @@
+/* General settings */
+* {
+    font-family: "JetBrainsMono Nerd Font", "Fira Code", sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+    min-height: 0;
+}
+
+/* Waybar background */
+window#waybar {
+    background-color: rgba(20, 20, 20, 0.9); /* very dark semi-transparent */
+    color: #cdd6f4; /* light text */
+    padding: 4px;
+}
+
+/* All modules */
+.modules-left, .modules-center, .modules-right {
+    margin: 0 6px;
+    background: transparent;
+    padding: 8px 0;
+}
+
+/* Module styling */
+
+#workspaces button {
+    background: transparent;
+    color: #7f849c;
+    padding: 4px 8px;
+    margin: 2px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+#workspaces button.active {
+    background: #89b4fa; /* bluish accent for active workspace */
+    color: #1e1e2e;
+}
+
+#workspaces button:hover {
+    background: #45475a;
+    color: #cdd6f4;
+}
+
+/* Individual module styles */
+#clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray, #backlight, #custom-launcher {
+    background-color: transparent;
+    padding: 6px 10px;
+    margin: 2px 4px;
+    border-radius: 6px;
+}
+
+#battery {
+    background-color: transparent;
+    color: #cccccc;
+}
+
+#battery.warning {
+  color: orange;
+}
+#battery.critical {
+  color: red;
+}
+#battery.charging {
+  color: lightgreen;
+}
+
+#cpu {
+    color: #fab387;
+}
+
+#memory {
+    color: #f9e2af;
+}
+
+#network {
+    color: #89b4fa;
+}
+
+#pulseaudio {
+    color: #f38ba8;
+}
+
+#backlight {
+    color: #cba6f7;
+}
+
+/* Tooltips */
+tooltip {
+    background: #1e1e2e;
+    border-radius: 6px;
+    border: 1px solid #45475a;
+    padding: 5px;
+}
+
+tooltip label {
+    color: #cdd6f4;
+}
+
+/* Tray icons */
+#tray {
+    background-color: transparent;
+    padding: 0 8px;
+}
+
+#tray > .item {
+    margin: 0 4px;
+}
+
+/* Custom Launcher Button Example */
+#custom-launcher {
+    color: #eeeeee;
+    font-weight: bold;
+    font-size: 2em;
+    padding: 0;
+    padding-left: 16px;
+}
+
+#idle_inhibitor {
+  padding-right: 16px;  /* Add extra space to the right */
+  font-size: 24px;
+}
+
+#clock {
+    background-color: transparent;
+}

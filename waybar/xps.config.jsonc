@@ -1,0 +1,95 @@
+[
+  {
+    "output": "eDP-1", // <-- only show on main monitor
+    "layer": "top",
+    "position": "top",
+    "width": 1900, // set fixed width for centered floating look
+    "height": 24,
+    "margin-top": 8,
+    "margin-left": 0,
+    "margin-right": 0,
+    "margin-bottom": 0,
+    "spacing": 8,
+    "modules-left": [
+      "custom/launcher",
+	  "cffi/niri-taskbar"
+    ],
+    "modules-center": [
+      "clock",
+      "custom/weather"
+    ],
+	"custom/launcher": {
+      "interval": 0,
+      "format": "≡",  // Hamburger menu icon
+      "on-click": "fuzzel -a top-left --y-margin=8 --x-margin=12",
+      "tooltip": "Open Fuzzel Launcher"
+	},
+    "modules-right": [
+      "tray",
+      "network",
+      "battery",
+      "idle_inhibitor"
+    ],
+    "cffi/niri-taskbar": {
+      "module_path": "/home/cosmo/.config/waybar/libs/libniri_taskbar.so",
+      "apps": {
+        "signal": [
+          {
+            "match": "\\([0-9]+\\)$",
+            "class": "unread"
+          }
+        ]
+      }
+    },
+	"network": {
+    	"interface": "wlp60s0",
+    	"format": "{ifname}",
+    	"format-wifi": "{essid} ",
+    	"format-ethernet": "{ipaddr}/{cidr} 󰊗",
+    	"format-disconnected": "", //An empty format will hide the module.
+    	"tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    	"tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    	"tooltip-format-ethernet": "{ifname} ",
+    	"tooltip-format-disconnected": "Disconnected",
+    	"max-length": 50
+	},
+    "clock": {
+        "format": "{:%A, %d %B | %H:%M}",
+        "tooltip": true,
+        "tooltip-format": "{calendar}",
+        "calendar": {
+            "weeks-pos": "left",
+            "on-scroll": 1
+        },
+        "interval": 1,
+        "calendar-script": "/home/cosmo/.config/waybar/scripts/calendar.sh"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󰅶", // (lock open icon)
+            "deactivated": "󰾪" // (sleep icon)
+        }
+    },
+    "custom/weather": {
+        "exec": "/home/cosmo/.config/waybar/scripts/weather.sh",
+        "return-type": "json",
+        "interval": 1800, // update every 30 minutes
+        "format": "{}"
+    },
+    "tray": {
+      "spacing": 10,
+      "icon-size": 24
+    },
+    "battery": {
+        "interval": 60,
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        "format-icons": ["", "", "", "", ""],
+        "max-length": 25
+    }
+  }
+]
